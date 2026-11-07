@@ -11,11 +11,6 @@ export default function ChatInput({ onSend, onSave, canSave }) {
     setText("");
   };
 
-  const handleSave = (e) => {
-    e.preventDefault(); // Save is type="submit", but must not send a message
-    onSave();
-  };
-
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
@@ -29,10 +24,10 @@ export default function ChatInput({ onSend, onSave, canSave }) {
         Ask
       </button>
       <button
-        type="submit"
+        type="button"
         className={styles.save}
         disabled={!canSave}
-        onClick={handleSave}
+        onClick={onSave}
       >
         Save
       </button>

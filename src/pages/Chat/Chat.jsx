@@ -7,7 +7,7 @@ import { useChat } from "../../context/ChatContext";
 import styles from "./Chat.module.css";
 
 export default function Chat() {
-  const { messages, sendMessage } = useChat();
+  const { messages, sendMessage, saveConversation } = useChat();
   const scrollRef = useRef(null);
 
   // keep the newest message in view
@@ -16,10 +16,6 @@ export default function Chat() {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages.length]);
-
-  const handleSave = () => {
-    // Saving to localStorage comes in Step 6
-  };
 
   return (
     <Layout>
@@ -34,7 +30,7 @@ export default function Chat() {
 
         <ChatInput
           onSend={sendMessage}
-          onSave={handleSave}
+          onSave={saveConversation}
           canSave={messages.length > 0}
         />
       </div>

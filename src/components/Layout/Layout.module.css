@@ -137,6 +137,16 @@
   overflow-y: auto;
 }
 
+.newBtn,
+.prevBtn {
+  text-decoration: none;
+}
+
+.prevBtn {
+  display: block;
+  text-align: center;
+}
+
 /* ---------- Tablet / Desktop ---------- */
 @media (min-width: 768px) {
   .sidebar {
