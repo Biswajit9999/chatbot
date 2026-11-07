@@ -1,0 +1,195 @@
+/* ---------- Mobile first (base) ---------- */
+.app {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* drawer */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  width: min(280px, 80vw);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+  background: var(--sidebar);
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.closeBtn {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.newBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 60px;
+  padding: 10px 14px;
+  border: none;
+  background: var(--primary);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.newIcon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.newText {
+  flex: 1;
+  font-size: 15px;
+}
+
+.editIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.prevBtn {
+  margin: 0 14px;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary);
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* main column */
+.column {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.menuBtn,
+.themeBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: none;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.title {
+  flex: 1;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--accent);
+}
+
+.themeLabel {
+  display: none;
+  font-size: 12px;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* ---------- Tablet / Desktop ---------- */
+@media (min-width: 768px) {
+  .sidebar {
+    position: static;
+    z-index: auto;
+    width: clamp(260px, 21vw, 400px);
+    flex-shrink: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+  }
+
+  .backdrop,
+  .closeBtn,
+  .menuBtn {
+    display: none;
+  }
+
+  .newBtn {
+    min-height: 115px;
+    padding: 10px 30px;
+  }
+
+  .newIcon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .newText {
+    font-size: 20px;
+  }
+
+  .editIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .prevBtn {
+    margin: 12px 30px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .header {
+    padding: 24px 30px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .themeLabel {
+    display: inline;
+  }
+}

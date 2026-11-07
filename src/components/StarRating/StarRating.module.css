@@ -1,0 +1,20 @@
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  display: flex;
+  padding: 2px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.filled {
+  color: #f5a800;
+}
+
+.empty {
+  color: var(--muted);
+}
